@@ -1,0 +1,8 @@
+{
+  "name": "admin-react-fe",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@gitee.com:happymmall2017/admin-react-fe.git",
+  "author": "zhengquan <zheng_quan45@163.com>",
+  "license": "MIT"
+}
