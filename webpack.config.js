@@ -12,6 +12,11 @@ module.exports = {
         publicPath:'/dist/',
         filename: 'js/app.js'
     },
+    resolve:{
+    	alias:{
+    		page:path.resolve(__dirname, 'src/page')
+    	}
+    },
     module: {
         rules: [
             //react的jsx文件的处理
@@ -21,7 +26,10 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['env', 'react']
+                        presets: ['env', 'react'],
+                        plugins:[
+                         	["import", { "libraryName": "antd", "style": "css" }]
+                    	]
                     }
                 }
             },
@@ -77,8 +85,9 @@ module.exports = {
             name: 'common',
             filename: 'js/base.js'
         })
+
     ],
     devServer:{
-    	port:9999
+    	port:8060
     }
 };
