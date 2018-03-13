@@ -335,8 +335,9 @@ footer p {
 	position: relative;
 	display: inline-block;
 	margin: 0px;
-	padding: 0px;
+	padding: 0px 10px;
 }
+
 .top-navbar .nav > li > a {
 	position: relative;
 	display: block;
@@ -351,8 +352,16 @@ footer p {
 }
 .top-navbar .dropdown-menu {
 	min-width: 230px;
+	top:98%;
 	border-radius: 0 0 4px 4px;
 }
+.dropdown-menu >li >a{
+	cursor: pointer;
+}
+.top-navbar .nav > li:hover .dropdown-menu{
+	display: block;
+}
+
 .top-navbar .dropdown-menu > li > a:hover, .top-navbar .dropdown-menu > li > a:focus {
 	color: #225081;
 	background:none;
@@ -435,6 +444,10 @@ ul.nav.nav-second-level.collapse.in {
 }
 .top-navbar .nav > li > a > i {
 	margin-right: 2px;
+}
+.top-navbar .nav > li > a > span {
+	color: #666;
+	margin-right: 5px;
 }
 .top-navbar .navbar-brand:hover {
 	color: #2DAFCB;
