@@ -1,19 +1,17 @@
-import React  from 'react';
-import {Link} from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-class NavTop extends React.Component{
-	constructor(props){
-		super(props);
-	}
-	//退出登录
-	onLogout(){
-
-	}
-	render(){
-		return(
-			<div className="navbar navbar-default top-navbar">
+class NavTop extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+    //退出登录
+    onLogout() {}
+    render() {
+        return (
+            <div className="navbar navbar-default top-navbar">
             <div className="navbar-header">
-                <Link className="navbar-brand" to="/"><b>Happy</b>MMall</Link>
+                <Link className="navbar-brand" to="/"><b>Happy</b> MMall</Link>
             </div>
 
             <ul className="nav navbar-top-links navbar-right">
@@ -25,16 +23,18 @@ class NavTop extends React.Component{
                     </a>
                     <ul className="dropdown-menu dropdown-user">
                         <li>
-                        	<a onClick={()=>{this.onLogout()}}>
-                        		<i className="fa fa-sign-out fa-fw"></i> 
-                        		<span>退出登录</span>
-                        	</a>
+                            <a onClick={() => {
+                this.onLogout()
+            }}>
+                                <i className="fa fa-sign-out fa-fw"></i> 
+                                <span>退出登录</span>
+                            </a>
                         </li>
                     </ul>
                 </li>
             </ul>
         </div>
-		);
-	}
+        );
+    }
 }
 export default NavTop;
