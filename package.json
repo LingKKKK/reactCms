@@ -27,6 +27,8 @@
   },
   "dependencies": {
     "html-webpack-plugin": "2.30.1",
+    "moment": "^2.21.0",
+    "rc-pagination": "^1.16.0",
     "react": "16.2.0",
     "react-dom": "16.2.0",
     "react-router-dom": "4.2.2"

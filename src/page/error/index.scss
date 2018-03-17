@@ -1,0 +1,33 @@
+/*
+* @Author: zhengquan
+* @Date:   2018-03-17 09:54:57
+* @Last Modified by:   zhengquan
+* @Last Modified time: 2018-03-17 10:30:20
+*/
+
+.exception-box{
+	padding:80px 0;
+	.exception-img{
+	display:inline-block;
+	height:360px;
+	width:100%;
+	max-width:430px;
+	background-image:url('http://gw.alipayobjects.com/zos/rmsportal/wZcnGqRDyhPOEYFcZDnb.svg');
+	background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: contain;
+	}
+	.desc-block{
+		padding: 90px 80px;
+		.exception-number{
+			font-size: 70px;
+    		font-weight: bold;
+    		margin-bottom:20px;
+		}
+		.exception-desc{
+			font-size: 20px;
+			color:#666;
+			margin-bottom:20px;
+		}
+	}
+}
