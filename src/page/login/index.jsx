@@ -59,7 +59,7 @@ class Login extends React.Component {
                 _mm.setStorage('userInfo', res.data);
                 this.props.history.push(this.state.redirect);
             }, (err) => {
-                _mm.errTips(err);
+                _mm.errTips(err.msg);
             });
         } else {
             _mm.errTips(result.msg);

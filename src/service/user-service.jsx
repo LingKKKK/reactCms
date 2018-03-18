@@ -50,6 +50,11 @@ class User {
             url: '/user/logout.do'
         })
     }
+    /**
+     * 获取用户列表数据
+     * @param  {[type]} pageNum [description]
+     * @return {[type]}         [description]
+     */
     getUserList(pageNum) {
         return _mm.request({
             type: 'post',

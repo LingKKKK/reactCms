@@ -1,3 +1,5 @@
+import swal from 'sweetalert2';
+
 class MUtil {
     /**
      * 请求接口的封装(包含promise和各个状态的处理)
@@ -47,11 +49,46 @@ class MUtil {
         return result ? decodeURIComponent(result[2]) : null;
     }
     /**
+     * 成功提示
+     * @return {[type]} [description]
+     */
+    successTips(successMsg) {
+        swal({
+            title: successMsg,
+            type: 'success',
+            showConfirmButton: false,
+            timer: 1500
+        })
+    }
+    /**
      * 错误提示
      * @return {[type]} [description]
      */
     errTips(errMsg) {
-        alert(errMsg);
+        swal({
+            title: errMsg,
+            type: 'error',
+            showConfirmButton: false,
+            timer: 1500
+        })
+    }
+    /**
+     * 确认框
+     * @param  {[type]} text [description]
+     * @return {[type]}      [description]
+     */
+    comfirmDialog(text, callBack) {
+        swal({
+            title: text,
+            type: 'info',
+            showCancelButton: true,
+            confirmButtonText: '确认',
+            cancelButtonText: '取消'
+        }).then((result) => {
+            if (result.value) {
+                callBack();
+            }
+        })
     }
     /**
      * localStorage 保存方法

@@ -4,7 +4,7 @@ const _mm = new MUtil();
 
 class Statistic {
     /**
-     * 登录
+     * 获取首页统计信息
      * @param  {[type]} param [description]
      * @return {[type]}       [description]
      */

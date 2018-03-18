@@ -1,0 +1,29 @@
+
+$sub-btn-size:80px;
+.btn-icon{
+	width: 80px;
+	height: 80px;
+	float: left;
+	margin-right: 10px;
+	border: 1px solid  #ccc;
+	position: relative;
+	.fa-plus{
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		left: 0;
+		text-align: center;
+		height: $sub-btn-size;
+		line-height: $sub-btn-size;
+		cursor: pointer;
+		display: block;
+		font-size: 50px;
+		color: #ccc;
+	}
+	&:hover{
+		.fa-plus{
+			background:rgba(0,0,0,.1);
+		}
+	}
+}

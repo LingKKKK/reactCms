@@ -176,7 +176,7 @@ p {
 }
 .blue {
 	background-color: #4CB1CF;
-	color: #fff
+	color: #fff;
 }
 .red {
 	background-color: #F0433D;
@@ -509,3 +509,4 @@ ul.nav.nav-second-level.collapse.in {
 		top: 0;
 	}
 } 
+
