@@ -22,6 +22,26 @@ class CategorySelector extends React.Component {
     componentDidMount() {
         this.loadFirstCategory();
     }
+    componentWillReceiveProps(nextProps) {
+        let categoryIdChanged = this.props.categoryId !== nextProps.categoryId,
+            parentCategoryIdChanged = this.props.parentCategoryId !== nextProps.parentCategoryId;
+        if (!categoryIdChanged && !parentCategoryIdChanged) {
+            return;
+        }
+        if (nextProps.parentCategoryId === 0) {
+            this.setState({
+                firstCategoryId: nextProps.categoryId,
+                secondCategoryId: 0
+            });
+        } else {
+            this.setState({
+                firstCategoryId: nextProps.parentCategoryId,
+                secondCategoryId: nextProps.categoryId
+            }, () => {
+                parentCategoryIdChanged && this.loadSecondCategory();
+            });
+        }
+    }
     //加载一级分类
     loadFirstCategory() {
         _product.getCategoryList().then((res) => {
@@ -91,15 +111,15 @@ class CategorySelector extends React.Component {
         }
         return (
             <div className="col-md-10">
-                <select className="form-control cate-select" onChange={onFirstCategoryChange}>
+                <select className="form-control cate-select" onChange={onFirstCategoryChange} value={this.state.firstCategoryId} disabled={this.props.disabled}>
                     <option value="">请选择一级分类</option>
                     {firstCategoryList}
                 </select>
             {this.state.secondCategoryList.length > 0 ?
-                (<select className="form-control cate-select" onChange={onSecondCategoryChange}>
+                <select className="form-control cate-select" onChange={onSecondCategoryChange} value={this.state.secondCategoryId} disabled={this.props.disabled}>
                     <option value="">请选择二级分类</option>
                     {secondCategoryList}
-                </select> ) : null
+                </select> : null
             }
             </div>
         );

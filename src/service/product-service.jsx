@@ -96,6 +96,20 @@ class Product {
 
     }
     /**
+     * 商品详情
+     * @param  {[type]} productId [description]
+     * @return {[type]}           [description]
+     */
+    getProduct(productId) {
+        return _mm.request({
+            type: 'post',
+            url: '/manage/product/detail.do',
+            data: {
+                productId: productId || 0
+            }
+        })
+    }
+    /**
      * 品类相关
      */
     getCategoryList(parentCategoryId) {

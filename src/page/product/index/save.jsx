@@ -16,6 +16,7 @@ class ProductSave extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            id: this.props.match.params.pid,
             name: '',
             subtitle: '',
             categoryId: 0,
@@ -25,6 +26,27 @@ class ProductSave extends React.Component {
             stock: '',
             detail: '',
             status: 1
+        }
+    }
+    componentDidMount() {
+        this.loadProduct();
+    }
+    //加载商品详情
+    loadProduct() {
+        if (this.state.id) {
+            _product.getProduct(this.state.id).then((res) => {
+                let images = res.data.subImages.split(',');
+                res.data.subImages = images.map((imgUri) => {
+                    return {
+                        uri: imgUri,
+                        url: res.data.imageHost + imgUri
+                    }
+                });
+                res.data.defaultDetail = res.data.detail;
+                this.setState(res.data);
+            }, (errMsg) => {
+                _mm.errTips(errMsg);
+            })
         }
     }
     //品类变化事件
@@ -48,7 +70,6 @@ class ProductSave extends React.Component {
     }
     //富文本改变事件
     onRichEditorChange(value) {
-        console.log(value);
         this.setState({
             detail: value
         })
@@ -87,6 +108,7 @@ class ProductSave extends React.Component {
                 status: this.state.status,
             },
             result = _product.checkProductParam(param);
+        param.id = this.state.id ? this.state.id : null;
         if (result.status) {
             _product.saveProduct(param).then((res) => {
                 _mm.successTips(res.data);
@@ -132,29 +154,29 @@ class ProductSave extends React.Component {
             }) : null;
         return (
             <div id="page-wrapper">
-                <PageTitle title="添加商品"/>
+                {this.state.id ? <PageTitle title="编辑商品"/> : <PageTitle title="添加商品"/>}
                 <div className="form-horizontal">
                     <div className="form-group">
                         <label className="col-md-2 control-label">商品名称</label>
                         <div className="col-md-5">
-                            <input type="text" className="form-control" placeholder="请输入商品名称" name="name" onChange={onValueChange}/>
+                            <input type="text" className="form-control" placeholder="请输入商品名称" name="name" onChange={onValueChange} value={this.state.name}/>
                         </div>
                     </div>
                     <div className="form-group">
                         <label className="col-md-2 control-label">商品描述</label>
                         <div className="col-md-5">
-                            <input type="text" className="form-control" placeholder="请输入商品描述" name="subtitle" onChange={onValueChange}/>
+                            <input type="text" className="form-control" placeholder="请输入商品描述" name="subtitle" onChange={onValueChange} value={this.state.subtitle}/>
                         </div>
                     </div>
                     <div className="form-group">
                         <label className="col-md-2 control-label">所属分类</label>
-                        <CategorySelector onCategoryChange={onCategoryChange}/>
+                        <CategorySelector categoryId={this.state.categoryId} parentCategoryId={this.state.parentCategoryId} onCategoryChange={onCategoryChange}/>
                     </div>
                     <div className="form-group">
                         <label className="col-md-2 control-label">商品价格</label>
                         <div className="col-md-3">
                             <div className="input-group">
-                                <input type="number" className="form-control" placeholder="价格" name="price" onChange={onValueChange}/>
+                                <input type="number" className="form-control" placeholder="价格" name="price" onChange={onValueChange} value={this.state.price}/>
                                 <span className="input-group-addon">元</span>
                             </div>
                         </div>
@@ -163,7 +185,7 @@ class ProductSave extends React.Component {
                         <label className="col-md-2 control-label">商品库存</label>
                         <div className="col-md-3">
                             <div className="input-group">
-                                <input type="number" className="form-control" placeholder="库存" name="stock" onChange={onValueChange}/>
+                                <input type="number" className="form-control" placeholder="库存" name="stock" onChange={onValueChange} value={this.state.stock}/>
                                 <span className="input-group-addon">件</span>
                             </div>
                         </div>
@@ -178,7 +200,7 @@ class ProductSave extends React.Component {
                     <div className="form-group">
                         <label className="col-md-2 control-label">商品详情</label>
                         <div className="col-md-10">
-                            <RichEditor onValueChange={onRichEditorChange}/>
+                            <RichEditor defaultDetail={this.state.defaultDetail} detail={this.state.detail} onValueChange={onRichEditorChange}/>
                         </div>
                     </div>
                    
