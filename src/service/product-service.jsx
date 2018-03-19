@@ -121,6 +121,49 @@ class Product {
             }
         })
     }
+    /**
+     * 更新品类名称
+     * @param  {[type]} param [description]
+     * @return {[type]}       [description]
+     */
+    updateCategoryName(param) {
+        return _mm.request({
+            type: 'post',
+            url: '/manage/category/set_category_name.do',
+            data: param
+        })
+    }
+    /**
+     * 检查品类名称
+     * @param  {[type]} categoryName [description]
+     * @return {[type]}              [description]
+     */
+    checkCategory(param) {
+        let categoryName = $.trim(param.categoryName);
+        if (typeof categoryName !== 'string' || categoryName.length === 0) {
+            return {
+                status: false,
+                msg: '品类名称不能为空!'
+            }
+        }
+        return {
+            status: true,
+            msg: '验证通过!'
+        }
+    }
+    /**
+     * 保存新品类
+     * @param  {[type]} param [description]
+     * @return {[type]}       [description]
+     */
+    saveCategory(param) {
+        return _mm.request({
+            type: 'post',
+            url: '/manage/category/add_category.do',
+            data: param
+        })
+
+    }
 }
 
 export default Product;

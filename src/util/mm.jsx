@@ -73,6 +73,23 @@ class MUtil {
         })
     }
     /**
+     * 输入框
+     * @param  {[type]} text [description]
+     * @return {[type]}      [description]
+     */
+    promptDialog(text, name, callBack) {
+        swal({
+            title: text,
+            input: 'text',
+            inputValue: name,
+            showCancelButton: true,
+            confirmButtonText: '确认',
+            cancelButtonText: '取消'
+        }).then((value) => {
+            callBack(value);
+        });
+    }
+    /**
      * 确认框
      * @param  {[type]} text [description]
      * @return {[type]}      [description]

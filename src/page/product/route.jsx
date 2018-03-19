@@ -16,16 +16,23 @@ import ProductSave from 'page/product/index/save.jsx';
 //商品详情页面
 import ProductDetail from 'page/product/index/detail.jsx';
 
+//品类列表页面
+import CategoryList from 'page/product/category/index.jsx';
+
+//品类添加页面
+import CategorySave from 'page/product/category/save.jsx';
+
 class ProductRouter extends React.Component {
     render() {
         return (
             <Switch>
                 <Route path="/product/index" component={ProductList}/>
-                <Route exact path="/product/save" component={ProductSave}/>
-                <Route path="/product/save/:pid" component={ProductSave}/>
+                <Route path="/product/save/:pid?" component={ProductSave}/>
                 <Route path="/product/detail/:pid" component={ProductDetail}/>
+                <Route path="/product-category/index/:categoryId?" component={CategoryList}/>
+                <Route path="/product-category/save" component={CategorySave}/>
                 <Redirect exact from="/product" to="/product/index"/>
-                <Route path="/product.category" component={ProductList}/>
+                <Redirect exact from="/product-category" to="/product-category/index"/>
             </Switch>
         );
     }

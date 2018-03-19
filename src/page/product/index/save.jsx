@@ -84,9 +84,8 @@ class ProductSave extends React.Component {
         })
     }
     //删除图片
-    onImageDelete(e) {
-        let index = parseInt(e.target.getAttribute('index')),
-            subImages = this.state.subImages;
+    onImageDelete(index) {
+        let subImages = this.state.subImages;
         subImages.splice(index, 1);
         this.setState({
             subImages: subImages
@@ -144,17 +143,12 @@ class ProductSave extends React.Component {
             onSubmit = (e) => {
                 this.onSubmit(e);
             },
-            imgPreview = this.state.subImages.length > 0 ? this.state.subImages.map((image, index) => {
-                return (
-                    <div key={index} className="img-con" >
-                        <img src={image.url}/>
-                        <i className="fa fa-close" index={index} onClick={(e) => this.onImageDelete(e)}></i>
-                    </div>
-                )
-            }) : null;
+            onImageDelete = (index) => {
+                this.onImageDelete(index);
+            };
         return (
             <div id="page-wrapper">
-                {this.state.id ? <PageTitle title="编辑商品"/> : <PageTitle title="添加商品"/>}
+                <PageTitle title={this.state.id ? "编辑商品" : "添加商品"}/>
                 <div className="form-horizontal">
                     <div className="form-group">
                         <label className="col-md-2 control-label">商品名称</label>
@@ -193,8 +187,7 @@ class ProductSave extends React.Component {
                     <div className="form-group">
                         <label className="col-md-2 control-label">商品图片</label>
                         <div className="col-md-10">
-                            {imgPreview}
-                            <FileUploader onSuccess={onSuccess} onError={onError}/>
+                            <FileUploader images={this.state.subImages} onDelete={onImageDelete} onSuccess={onSuccess} onError={onError}/>
                         </div>
                     </div>
                     <div className="form-group">
