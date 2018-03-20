@@ -14,7 +14,8 @@ import UserList from 'page/user/index.jsx';
 import ProductRouter from 'page/product/route.jsx';
 //订单列表页面
 import OrderList from 'page/order/index.jsx';
-
+//订单详情页面
+import OrderDetail from 'page/order/detail.jsx';
 //布局
 import Layout from 'component/layout/index.jsx';
 class App extends React.Component {
@@ -26,6 +27,7 @@ class App extends React.Component {
                 <Route path="/product" component={ProductRouter}/>
                 <Route path="/product-category" component={ProductRouter}/>
                 <Route path="/order/index" component={OrderList}/>
+                 <Route path="/order/detail/:orderNo" component={OrderDetail}/>
                 <Route path="/user/index" component={UserList}/>
                 <Redirect exact from="/user" to="/user/index"/>
                 <Redirect exact from="/order" to="/order/index"/>

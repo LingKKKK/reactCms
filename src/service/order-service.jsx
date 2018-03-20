@@ -25,7 +25,34 @@ class Order {
             data: data
         })
     }
-
+    /**
+     * 获取订单详情
+     * @param  {[type]} orderNo [description]
+     * @return {[type]}         [description]
+     */
+    getOrder(orderNo) {
+        return _mm.request({
+            type: 'post',
+            url: '/manage/order/detail.do',
+            data: {
+                orderNo: orderNo
+            }
+        })
+    }
+    /**
+     * 订单发货
+     * @param  {[type]} orderNo [description]
+     * @return {[type]}         [description]
+     */
+    sendGoods(orderNo) {
+        return _mm.request({
+            type: 'post',
+            url: '/manage/order/send_goods.do',
+            data: {
+                orderNo: orderNo
+            }
+        })
+    }
 }
 
 export default Order;
