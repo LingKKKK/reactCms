@@ -5,11 +5,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const webpack = require('webpack');
+
+let WEBPACK_ENV = process.env.WEBPACK_ENV || 'dev';
+console.log('当前打包使用的环境是:' + WEBPACK_ENV);
 module.exports = {
     entry: './src/app.jsx',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        publicPath: '/dist/',
+        publicPath: WEBPACK_ENV === 'online' ? '//s.happymall.shop/admin-fe/dist/' : '/dist/',
         filename: 'js/app.js'
     },
     resolve: {
