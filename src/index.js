@@ -17,6 +17,7 @@ const app = dva({
 
 // 2. Plugins
 app.use(createLoading());
+// 返回的信息 包含了global modles effect的异步加载完成情况
 
 // 3. Register global model
 app.model(require('./models/global').default);

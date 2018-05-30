@@ -124,7 +124,7 @@ class BasicLayout extends React.PureComponent {
       }
     });
     if (currRouterData && currRouterData.name) {
-      title = `${currRouterData.name} - Ant Design Pro`;
+      title = `${currRouterData.name} - 内容页面`;
     }
     return title;
   }
@@ -219,6 +219,7 @@ class BasicLayout extends React.PureComponent {
               onNoticeVisibleChange={this.handleNoticeVisibleChange}
             />
           </Header>
+
           <Content style={{ margin: '24px 24px 0', height: '100%' }}>
             <Switch>
               {redirectData.map(item => (
@@ -238,31 +239,32 @@ class BasicLayout extends React.PureComponent {
               <Route render={NotFound} />
             </Switch>
           </Content>
+
           <Footer style={{ padding: 0 }}>
             <GlobalFooter
               links={[
                 {
                   key: 'Pro 首页',
-                  title: 'Pro 首页',
-                  href: 'http://pro.ant.design',
+                  title: '友情链接',
+                  href: '',
                   blankTarget: true,
                 },
                 {
-                  key: 'github',
+                  key: 'github123',
                   title: <Icon type="github" />,
-                  href: 'https://github.com/ant-design/ant-design-pro',
+                  href: '',
                   blankTarget: true,
                 },
                 {
                   key: 'Ant Design',
-                  title: 'Ant Design',
-                  href: 'http://ant.design',
+                  title: '友情链接',
+                  href: '',
                   blankTarget: true,
                 },
               ]}
               copyright={
                 <Fragment>
-                  Copyright <Icon type="copyright" /> 2018 蚂蚁金服体验技术部出品
+                  这里是底部信息 <Icon type="copyright" /> 2018 这里是底部信息
                 </Fragment>
               }
             />

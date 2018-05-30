@@ -40,6 +40,7 @@
     "omit.js": "^1.0.0",
     "path-to-regexp": "^2.1.0",
     "prop-types": "^15.5.10",
+    "puppeteer": "^1.4.0",
     "qs": "^6.5.0",
     "rc-drawer-menu": "^0.5.0",
     "react": "^16.2.0",
@@ -80,9 +81,6 @@
     "stylelint": "^8.4.0",
     "stylelint-config-prettier": "^3.0.4",
     "stylelint-config-standard": "^18.0.0"
-  },
-  "optionalDependencies": {
-    "puppeteer": "^1.4.0"
   },
   "lint-staged": {
     "**/*.{js,jsx,less}": [

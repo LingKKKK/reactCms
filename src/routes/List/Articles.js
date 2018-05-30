@@ -14,6 +14,8 @@ const pageSize = 5;
 
 @Form.create()
 @connect(({ list, loading }) => ({
+  // 用dva的connect方法可以拿到所有的state
+  // 在页面中，只需要获取需要的state即可，之后这些数据以props的形式存入页面中
   list,
   loading: loading.models.list,
 }))
@@ -29,6 +31,10 @@ export default class SearchList extends Component {
     });
   };
 
+  // 利用dispatch的方法 发送一个action（redux中的概念），action会找到对应的model页面做出相应的处理
+  // dispatch中的参数就是一个Action。第一个type字段由两部分组成，
+  // 前半部分是model的namespace（命名空间），
+  // 后半部分是该Action的处理位置，对应model中的effects（处理异步逻辑）,或reducers（处理同步逻辑）
   fetchMore = () => {
     this.props.dispatch({
       type: 'list/appendFetch',

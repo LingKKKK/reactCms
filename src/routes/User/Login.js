@@ -41,7 +41,7 @@ export default class LoginPage extends Component {
   };
 
   renderMessage = content => {
-    return <Alert style={{ marginBottom: 24 }} message={content} type="error" showIcon />;
+    return <Alert style={{ marginBottom: 30 }} message={content} type="error" showIcon />;
   };
 
   render() {
@@ -54,9 +54,9 @@ export default class LoginPage extends Component {
             {login.status === 'error' &&
               login.type === 'account' &&
               !login.submitting &&
-              this.renderMessage('账户或密码错误（admin/888888）')}
-            <UserName name="userName" placeholder="admin/user" />
-            <Password name="password" placeholder="888888/123456" />
+              this.renderMessage('账号和密码不匹配，请重新输入！')}
+            <UserName name="userName" placeholder="请输入您的账号" />
+            <Password name="password" placeholder="请输入您的密码" />
           </Tab>
           <Tab key="mobile" tab="手机号登录">
             {login.status === 'error' &&
@@ -76,7 +76,7 @@ export default class LoginPage extends Component {
           </div>
           <Submit loading={submitting}>登录</Submit>
           <div className={styles.other}>
-            其他登录方式
+            暂不支持其它方式登录
             <Icon className={styles.icon} type="alipay-circle" />
             <Icon className={styles.icon} type="taobao-circle" />
             <Icon className={styles.icon} type="weibo-circle" />

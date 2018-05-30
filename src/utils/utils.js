@@ -151,6 +151,7 @@ export function getRoutes(path, routerData) {
     };
   });
   return renderRoutes;
+  // 定义了路由的生成标准
 }
 
 /* eslint no-useless-escape:0 */
