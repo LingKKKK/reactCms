@@ -8,7 +8,8 @@ import { getNotices } from './mock/notices';
 import { format, delay } from 'roadhog-api-doc';
 
 // 是否禁用代理
-const noProxy = process.env.NO_PROXY === 'true';
+// const noProxy = process.env.NO_PROXY === 'true';
+const noProxy = true;
 
 // 代码中会兼容本地 service mock 以及部署站点的静态数据
 const proxy = {
@@ -72,8 +73,10 @@ const proxy = {
   'GET /api/profile/basic': getProfileBasicData,
   'GET /api/profile/advanced': getProfileAdvancedData,
   'POST /api/login/account': (req, res) => {
+    console.log(req.body);
     const { password, userName, type } = req.body;
-    if (password === '111111' && userName === 'admin') {
+    if (password === '1' && userName === 'admin') {
+      console.log('admin');
       res.send({
         status: 'ok',
         type,
@@ -82,6 +85,7 @@ const proxy = {
       return;
     }
     if (password === '123456' && userName === 'user') {
+      console.log('user');
       res.send({
         status: 'ok',
         type,
@@ -89,6 +93,7 @@ const proxy = {
       });
       return;
     }
+    console.log('fail');
     res.send({
       status: 'error',
       type,

@@ -61,11 +61,14 @@ export async function queryFakeList(params) {
 }
 
 export async function fakeAccountLogin(params) {
-  console.log(' judge the login action ');
-  return request('/api/login/account', {
-    method: 'POST',
-    body: params,
-  });
+  console.log(params, '调用接口开始验证');
+  console.log('验证登录');
+  return false;
+
+  // return request('http://enroll0.kenrobot.com/react-user.php', {
+  //   method: 'POST',
+  //   body: params,
+  // });
 }
 
 export async function fakeRegister(params) {

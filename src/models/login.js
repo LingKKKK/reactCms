@@ -12,7 +12,7 @@ export default {
 
   effects: {
     *login({ payload }, { call, put }) {
-      alert('点击登录按钮，进行登录判断');
+      console.log('点击登录按钮，进行登录判断');
       const response = yield call(fakeAccountLogin, payload);
       yield put({
         type: 'changeLoginStatus',
