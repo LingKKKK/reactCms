@@ -6,7 +6,6 @@ const menuData = [
     name: '导航大标题一',
     icon: 'apple',
     path: 'dashboard',
-    hideInMenu: true,
     children: [
       {
         name: '分析页',
@@ -20,7 +19,6 @@ const menuData = [
         name: '工作台',
         path: 'workplace',
         // hideInBreadcrumb: true,
-        // hideInMenu: true,
       },
     ],
   },
@@ -28,7 +26,6 @@ const menuData = [
     name: '导航大标题二',
     icon: 'form',
     path: 'form',
-    hideInMenu: true,
     children: [
       {
         name: '基础表单',
@@ -49,7 +46,6 @@ const menuData = [
     name: '导航大标题三',
     icon: 'table',
     path: 'list',
-    hideInMenu: true,
     children: [
       {
         name: '查询表格',
@@ -87,7 +83,6 @@ const menuData = [
     name: '详情页',
     icon: 'profile',
     path: 'profile',
-    hideInMenu: true,
     children: [
       {
         name: '基础详情页',
@@ -104,7 +99,6 @@ const menuData = [
     name: '结果页',
     icon: 'ie',
     path: 'result',
-    hideInMenu: true,
     children: [
       {
         name: '成功',
@@ -137,7 +131,6 @@ const menuData = [
       {
         name: '触发异常',
         path: 'trigger',
-        hideInMenu: true,
       },
     ],
   },
@@ -164,7 +157,7 @@ const menuData = [
   },
   {
     name: '测试页面1',
-    icon: 'ie',
+    icon: 'pause-circle-o',
     path: 'a',
     children: [
       {
@@ -175,7 +168,7 @@ const menuData = [
   },
   {
     name: '测试页面2',
-    icon: 'apple',
+    icon: 'pause-circle-o',
     path: 'b',
   },
 ];

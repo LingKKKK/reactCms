@@ -242,26 +242,7 @@ class BasicLayout extends React.PureComponent {
 
           <Footer style={{ padding: 0 }}>
             <GlobalFooter
-              links={[
-                {
-                  key: 'Pro 首页',
-                  title: '友情链接',
-                  href: '',
-                  blankTarget: true,
-                },
-                {
-                  key: 'github123',
-                  title: <Icon type="github" />,
-                  href: '',
-                  blankTarget: true,
-                },
-                {
-                  key: 'Ant Design',
-                  title: '友情链接',
-                  href: '',
-                  blankTarget: true,
-                },
-              ]}
+              links={[]}
               copyright={
                 <Fragment>
                   这里是底部信息 <Icon type="copyright" /> 2018 这里是底部信息

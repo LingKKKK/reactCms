@@ -95,8 +95,18 @@ export const getRouterData = app => {
   * 这里面 routerConfig 相对于 menuData 更容易操作，拓展性更好
    */
   const routerConfig = {
+    /*
+    *   初始的应该对应着登录注册界面
+    *   如果是登录状态，就跳转到主页
+    */
     '/': {
       component: dynamicWrapper(app, ['user', 'login'], () => import('../layouts/BasicLayout')),
+    },
+    '/a/222': {
+      component: dynamicWrapper(app, [], () => import('../routes/Test/222')),
+    },
+    '/b': {
+      component: dynamicWrapper(app, [], () => import('../routes/Test/b')),
     },
     '/dashboard/analysis': {
       component: dynamicWrapper(app, ['chart'], () => import('../routes/Dashboard/Analysis')),
@@ -177,11 +187,11 @@ export const getRouterData = app => {
     '/exception/500': {
       component: dynamicWrapper(app, [], () => import('../routes/Exception/500')),
     },
-    '/exception/trigger': {
-      component: dynamicWrapper(app, ['error'], () =>
-        import('../routes/Exception/triggerException')
-      ),
-    },
+    // '/exception/trigger': {
+    //   component: dynamicWrapper(app, ['error'], () =>
+    //     import('../routes/Exception/triggerException')
+    //   ),
+    // },
     '/user': {
       component: dynamicWrapper(app, [], () => import('../layouts/UserLayout')),
     },
@@ -194,17 +204,12 @@ export const getRouterData = app => {
     '/user/register-result': {
       component: dynamicWrapper(app, [], () => import('../routes/User/RegisterResult')),
     },
+
     /*
     * '/user/:id': {
     *   component: dynamicWrapper(app, [], () => import('../routes/User/SomeComponent')),
     * },
      */
-    '/a/222': {
-      component: dynamicWrapper(app, [], () => import('../routes/Test/222')),
-    },
-    '/b': {
-      component: dynamicWrapper(app, [], () => import('../routes/Test/b')),
-    },
   };
   /*  拿到菜单配置数组  Get name from ./menu.js or just set it in the router data.  */
   const menuData = getFlatMenuData(getMenuData());
@@ -250,6 +255,6 @@ export const getRouterData = app => {
     routerData[path] = router;
   });
 
-  console.log(routerData); /* 合并之后的路由配置对象 */
+  console.log('合并之后的路由配置对象'); /* 合并之后的路由配置对象 */
   return routerData;
 };

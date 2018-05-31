@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'dva';
-import { Link } from 'dva/router';
-import { Checkbox, Alert, Icon } from 'antd';
+// import { Link } from 'dva/router';
+// import { Checkbox, Alert, Icon } from 'antd';
+import { Checkbox, Alert, Button } from 'antd';
 import Login from 'components/Login';
 import styles from './Login.less';
 
@@ -54,7 +55,7 @@ export default class LoginPage extends Component {
             {login.status === 'error' &&
               login.type === 'account' &&
               !login.submitting &&
-              this.renderMessage('账号和密码不匹配，请重新输入！')}
+              this.renderMessage('账号和密码不匹配，请您重新输入！')}
             <UserName name="userName" placeholder="请输入您的账号" />
             <Password name="password" placeholder="请输入您的密码" />
           </Tab>
@@ -66,23 +67,50 @@ export default class LoginPage extends Component {
             <Mobile name="mobile" />
             <Captcha name="captcha" />
           </Tab>
+
           <div>
             <Checkbox checked={this.state.autoLogin} onChange={this.changeAutoLogin}>
               自动登录
             </Checkbox>
-            <a style={{ float: 'right' }} href="">
+            {/* <a style={{ float: 'right' }} href="">
               忘记密码
-            </a>
+            </a> */}
+            <Button
+              style={{
+                float: 'right',
+                border: '0',
+                background: 'rgba(0, 0, 0, 0)',
+                lineHeight: '20px',
+                height: '20px',
+              }}
+              disabled
+            >
+              忘记密码
+            </Button>
           </div>
+
           <Submit loading={submitting}>登录</Submit>
+
           <div className={styles.other}>
-            暂不支持其它方式登录
-            <Icon className={styles.icon} type="alipay-circle" />
+            暂不开放三方登录
+            {/* <Icon className={styles.icon} type="alipay-circle" />
             <Icon className={styles.icon} type="taobao-circle" />
             <Icon className={styles.icon} type="weibo-circle" />
             <Link className={styles.register} to="/user/register">
               注册账户
-            </Link>
+            </Link> */}
+            <Button
+              style={{
+                float: 'right',
+                border: '0',
+                background: 'rgba(0, 0, 0, 0)',
+                lineHeight: '20px',
+                height: '20px',
+              }}
+              disabled
+            >
+              注册账户
+            </Button>
           </div>
         </Login>
       </div>

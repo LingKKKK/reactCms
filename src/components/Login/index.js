@@ -114,6 +114,7 @@ class Login extends Component {
 
 Login.Tab = LoginTab;
 Login.Submit = LoginSubmit;
+
 Object.keys(LoginItem).forEach(item => {
   Login[item] = LoginItem[item];
 });
